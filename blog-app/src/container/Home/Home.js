@@ -6,6 +6,7 @@ import Aux from '../../hoc/Auxiliary/Auxiliary';
 import BlogPost from '../../components/BlogPost/BlogPost';
 import axios from '../../axios-orders';
 import ReactPaginate from 'react-paginate';
+import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 
 class Home extends Component {
     constructor(props) {
@@ -74,28 +75,30 @@ class Home extends Component {
                                 key={blog.id}
                                 blogData={blog.blogData} />
                         ))}
-                        <ReactPaginate
-                            previousLabel={"prev"}
-                            nextLabel={"next"}
-                            breakLabel={"..."}
-                            breakClassName={"break-me"}
-                            pageCount={this.state.pageCount}
-                            marginPagesDisplayed={2}
-                            pageRangeDisplayed={5}
-                            onPageChange={this.handlePageClick}
-                            containerClassName={classes.pagination}
-                            subContainerClassName={this.subClass}
-                            activeClassName={classes.active}/>
+                        
                     </div>
                     <div className={classes.right}>
                         <Search />
                         <RecentPosts />
                     </div>
                 </div>
-                <div className={classes.bottom}></div>
+                <div className={classes.bottom}>
+                    <ReactPaginate
+                        previousLabel={"prev"}
+                        nextLabel={"next"}
+                        breakLabel={"..."}
+                        breakClassName={"break-me"}
+                        pageCount={this.state.pageCount}
+                        marginPagesDisplayed={2}
+                        pageRangeDisplayed={5}
+                        onPageChange={this.handlePageClick}
+                        containerClassName={classes.pagination}
+                        subContainerClassName={this.subClass}
+                        activeClassName={classes.active}/>
+                </div>
             </Aux>
         )
     }
 }
 
-export default Home;
+export default withErrorHandler(Home, axios);

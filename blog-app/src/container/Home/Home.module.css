@@ -18,6 +18,9 @@
 
 .bottom {
     clear: both;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 
@@ -28,23 +31,23 @@
     outline: none;
   }
   .pagination > .active > a{
-    background-color: #47ccde ;
-    border-color: #47ccde ;
+    background-color: #40A4C8 ;
+    border-color: #40A4C8 ;
     color: #fff;
   }
   .pagination > li > a{
-    border: 1px solid #47ccde ;
+    border: 1px solid #40A4C8 ;
     padding: 5px 10px;
     outline: none;
     cursor: pointer;
   }
   .pagination > .active > a, .pagination > .active > span, .pagination > .active > a:hover, .pagination > .active > span:hover, .pagination > .active > a:focus, .pagination > .active > span:focus{
-    background-color: #47ccde ;
-    border-color: #47ccde;
+    background-color: #40A4C8 ;
+    border-color: #40A4C8;
     outline: none ;
   }
   .pagination > li > a, .pagination > li > span{
-    color: #47ccde
+    color: #40A4C8
   }
   .pagination > li:first-child > a, .pagination > li:first-child > span, .pagination > li:last-child > a, .pagination > li:last-child > span{
     border-radius: unset
