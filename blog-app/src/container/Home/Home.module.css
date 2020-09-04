@@ -23,6 +23,20 @@
     margin-right: auto;
 }
 
+.recPosts {
+    text-align: justify;
+    width: 100%;
+    border: 1px solid #eee;
+    box-sizing: border-box;
+    background-color: #F5F5F5;
+    padding-right: 15px;
+}
+
+.recPosts h2 {
+    margin-bottom: 0;
+    margin-left: 15px;
+}
+
 
 .pagination {
     margin: 15px auto;

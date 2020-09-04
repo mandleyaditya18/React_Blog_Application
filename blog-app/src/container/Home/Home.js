@@ -17,7 +17,8 @@ class Home extends Component {
             perPage: 5,
             currentPage: 0,
             loading: true,
-            blogs: []
+            blogs: [],
+            allPosts: []
         };
         this.handlePageClick = this.handlePageClick.bind(this);
     }
@@ -38,7 +39,8 @@ class Home extends Component {
                 this.setState({
                     pageCount: Math.ceil(fetchedPosts.length / this.state.perPage),
                     loading: false,
-                    blogs: slice
+                    blogs: slice,
+                    allPosts: fetchedPosts.reverse().slice(0,5)
                 })
             })
             .catch(err => {
@@ -66,6 +68,7 @@ class Home extends Component {
     subClass = [classes.pages, classes.pagination].join(' ');
 
     render () {
+        // console.log(this.state.allPosts);
         return (
             <Aux>
                 <div className={classes.root}>
@@ -74,12 +77,19 @@ class Home extends Component {
                             <BlogPost
                                 key={blog.id}
                                 blogData={blog.blogData} />
-                        ))}
-                        
+                        ))}   
                     </div>
+
                     <div className={classes.right}>
                         <Search />
-                        <RecentPosts />
+                        <div className={classes.recPosts}>
+                            <h2>Recent Posts</h2>
+                            {this.state.allPosts.map(pd => (
+                                <RecentPosts
+                                    key={pd.id}
+                                    title1={pd.blogData.title}/>
+                            ))}
+                        </div>
                     </div>
                 </div>
                 <div className={classes.bottom}>
